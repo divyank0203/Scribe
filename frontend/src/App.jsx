@@ -8,7 +8,6 @@ function App() {
 
   return (
     <>
-      <h1 classname='text-3xl'>Hello Vite+React+Tailwind</h1>
     </>
   )
 }
