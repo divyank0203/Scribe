@@ -4,7 +4,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const generateSummary = async (content) => {
   const response = await groq.chat.completions.create({
-    model: 'llama3-70b-8192',
+    model: 'llama-3.3-70b-versatile',
     max_tokens: 200,
     messages: [
       {
@@ -22,7 +22,7 @@ const generateDigest = async (entries) => {
   ).join('\n\n---\n\n');
 
   const response = await groq.chat.completions.create({
-    model: 'llama3-70b-8192',
+    model: 'llama-3.3-70b-versatile',
     max_tokens: 600,
     messages: [
       {
@@ -40,7 +40,7 @@ const chatWithEntries = async (question, entries) => {
   ).join('\n\n---\n\n');
 
   const response = await groq.chat.completions.create({
-    model: 'llama3-70b-8192',
+    model: 'llama-3.3-70b-versatile',
     max_tokens: 400,
     messages: [
       {
