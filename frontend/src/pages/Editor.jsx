@@ -14,7 +14,7 @@ export default function Editor() {
 
   useEffect(() => {
     if (id) {
-      API.get('/entries').then(res => {
+      API.get('api/entries').then(res => {
         const found = res.data.find(e => e._id === id);
         if (found) {
           setExistingEntry(found);
@@ -37,11 +37,11 @@ export default function Editor() {
     try {
       const tagArray = tags.split(',').map(t => t.trim()).filter(Boolean);
       if (id) {
-        await API.put(`/entries/${id}`, { content, tags: tagArray });
+        await API.put(`api/entries/${id}`, { content, tags: tagArray });
       } else {
-        await API.post('/entries', { content, tags: tagArray });
+        await API.post('api/entries', { content, tags: tagArray });
       }
-      navigate('/dashboard');
+      navigate('api/dashboard');
     } catch {
       setSaving(false);
     }

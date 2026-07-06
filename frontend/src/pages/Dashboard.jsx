@@ -15,7 +15,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.get('/entries')
+    API.get('api/entries')
       .then(res => setEntries(res.data))
       .finally(() => setEntriesLoading(false));
   }, []);
@@ -46,7 +46,7 @@ export default function Dashboard() {
     setShowDigest(true);
     setDigest('');
     try {
-      const res = await API.get('/entries/digest');
+      const res = await API.get('api/entries/digest');
       setDigest(res.data.digest);
     } catch {
       setDigest('Could not generate digest. Try again.');
